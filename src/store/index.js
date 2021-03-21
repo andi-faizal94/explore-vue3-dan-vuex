@@ -38,7 +38,11 @@ export default createStore({
             )
         }
     },
-    getters: {},
+    getters: {
+        counterSquare(state) {
+            return state.counter * state.counter
+        }
+    },
     modules: {
 
     }

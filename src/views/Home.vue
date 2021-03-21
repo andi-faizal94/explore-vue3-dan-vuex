@@ -3,6 +3,14 @@
     <img alt="Vue logo" src="../assets/logo.png" />
     <!-- menggunakan $store.state untuk memanggil object didalam vuex -->
     <div class="counter">{{$store.state.counter}}</div>
+    <div class="counter-square">
+      {{$store.state.counter}}
+
+      <sup>2</sup>=
+      <!-- memanggil getters -->
+      {{$store.getters.counterSquare}}
+    </div>
+
     <p>apakah ini benar?</p>
     <span>{{name}}</span>
 
@@ -21,6 +29,7 @@ export default {
   computed: {
     name() {
       // menggunakan this khusus untuk memanggil state didalam computed
+      // menggunakan ternary ? dengan respon yes dan no
       return this.$store.state.counter.length <= 1 ? "yes" : "no";
     }
   }
