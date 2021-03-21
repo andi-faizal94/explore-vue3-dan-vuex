@@ -1,41 +1,20 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <div class="counter">{{name.counter}}</div>
-    <p>apakah ini benar?</p>
-    <p>{{nameCounter}}</p>
+    <!-- menggunakan $store.state untuk memanggil object didalam vuex -->
+    <div class="counter">{{$store.state.counter}}</div>
 
     <div class="button">
-      <button @click="increase">+</button>
-      <button @click="decrease">-</button>
+      <!-- menggunakan commit saat memanggil mutaion didalam store -->
+      <button @click="$store.commit('increase')">+</button>
+      <button @click="$store.commit('decrease')">-</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home",
-  data() {
-    return {
-      name: {
-        counter: 0
-      }
-    };
-  },
-
-  computed: {
-    nameCounter() {
-      return this.name.counter.length > 1 ? "yes" : "no";
-    }
-  },
-  methods: {
-    increase() {
-      this.name.counter++;
-    },
-    decrease() {
-      this.name.counter--;
-    }
-  }
+  name: "Home"
 };
 </script>
 
