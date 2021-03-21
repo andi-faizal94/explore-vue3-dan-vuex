@@ -6,7 +6,8 @@ import axios from "axios";
 
 export default createStore({
     state: {
-        counter: 0
+        counter: 0,
+        colorCode: "red"
     },
     mutations: {
         increase(state, randomData) {
@@ -14,7 +15,12 @@ export default createStore({
         },
         decrease(state, randomData) {
             state.counter -= randomData;
+        },
+        // new value didapat dari computed yang parameternya newValue
+        setNewCode(state, newValue) {
+            state.colorCode = newValue
         }
+
     },
     // actions digunakan untuk memanggil api dari backend dan menggunakan methods dari mutations
 
