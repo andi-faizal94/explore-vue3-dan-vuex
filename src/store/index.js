@@ -42,7 +42,15 @@ export default createStore({
                     commit("decrease", response.data)
                 }
             )
+        },
+        // mengunakan actions untuk mengubah setNewCode
+        setNewCode({
+            commit
+        }, newValue) {
+            commit("setNewCode", newValue)
+
         }
+
     },
     getters: {
         counterSquare(state) {

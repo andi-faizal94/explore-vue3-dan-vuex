@@ -42,8 +42,11 @@ export default {
       get() {
         return this.$store.state.colorCode;
       },
+      // ada cara memanggil store di computed:
+      // 1.menggunakan commit untuk mutations
+      // 2.menggunakan dispatch untuk actions
       set(newValue) {
-        this.$store.commit("setNewCode", newValue);
+        this.$store.dispatch("setNewCode", newValue);
       }
     }
   }
