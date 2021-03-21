@@ -1,21 +1,44 @@
 import {
     createStore
-} from 'vuex'
+} from 'vuex';
+import axios from "axios";
+
 
 export default createStore({
     state: {
         counter: 0
     },
     mutations: {
-        increase(state) {
-            state.counter++;
+        increase(state, randomData) {
+            state.counter += randomData;
         },
-        decrease(state) {
-            state.counter--;
+        decrease(state, randomData) {
+            state.counter -= randomData;
         }
     },
-    actions: {
+    // actions digunakan untuk memanggil api dari backend dan menggunakan methods dari mutations
 
+    actions: {
+        increase({
+            commit
+        }) {
+            console.log('increase(action)');
+            axios('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new').then(
+                response => {
+                    commit("increase", response.data)
+                }
+            )
+        },
+        decrease({
+            commit
+        }) {
+            console.log('decrease(action)');
+            axios('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new').then(
+                response => {
+                    commit("decrease", response.data)
+                }
+            )
+        }
     },
     getters: {},
     modules: {
