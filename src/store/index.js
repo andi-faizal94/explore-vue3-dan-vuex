@@ -22,7 +22,6 @@ export default createStore({
         increase({
             commit
         }) {
-            console.log('increase(action)');
             axios('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new').then(
                 response => {
                     commit("increase", response.data)
@@ -32,7 +31,6 @@ export default createStore({
         decrease({
             commit
         }) {
-            console.log('decrease(action)');
             axios('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new').then(
                 response => {
                     commit("decrease", response.data)
